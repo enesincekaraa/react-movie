@@ -1,10 +1,14 @@
 
 import React from 'react'
+import "./card.scss";
 
-function Card({src}) {
+function Card({src, title, date}) {
     return (
-        <div>
-            <img style={{height:"auto", maxWidth:"150px", width:"100%", objectFit:"cover"}} src={src}/>
+        <div className="card">
+
+            <img className="card__img" src={src}/>
+            <p className="card__title">{title}</p>
+            <p className="card__date">{date}</p>
         </div>
     )
 }

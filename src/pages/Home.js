@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './home.scss'
 import axios from '../api'
 import Card from '../components/card'
+import Slider from '../components/slider'
 
 const Home = () => {
 
@@ -21,11 +22,16 @@ const Home = () => {
         })();
 
     }, [])
+
     return (
-        <div className="home" style={{display:"flex", flexWrap:"wrap", gap: "15px", paddingLeft: "20px"}}>
-           {films && films.map((item) => (
-               <Card src={`http://image.tmdb.org/t/p/original${item.poster_path}`}/>
-           ))}
+        <div className="home" style={{paddingLeft: "20px" }}>
+            <Slider>
+                {films && films.map((item) => (
+                    <Card key={item.id} date={item.release_date} title={item.title} src={`http://image.tmdb.org/t/p/original${item.poster_path}`} />
+
+                ))}
+            </Slider>
+
         </div>
     )
 }
