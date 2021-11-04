@@ -4,6 +4,9 @@
     min-width: 160px;
     cursor: pointer;
     border-radius: 8px;
+    &__imgContainer {
+        position: relative;
+    }
     &__img {
         height: auto;
         max-width: 140px;
@@ -13,12 +16,46 @@
     }
     &__title {
         overflow-wrap: break-word;
-        margin-top: 10px;
+        margin-top: 20px;
         font-weight: 700;
         color: #000;
     }
     &__date {
         margin-top: 3px;
         color: rgba(0, 0, 0, 0.6);
+    }
+    &__voteContainer {
+        background-color: #081C23;
+        position: absolute;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: -15px;
+        left: 15px;
+        z-index: 10;
+    }
+    &__vote {
+        border-radius: 50%;
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &--max {
+            border: 3px solid green;
+        }
+        &--min {
+            border: 3px solid #DB2560;
+        }
+        &--medium {
+            border: 3px solid #D2D531;
+        }
+        & span {
+            color: white;
+            font-weight: bold;
+        }
     }
 }

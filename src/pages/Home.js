@@ -7,7 +7,6 @@ import Slider from '../components/slider'
 const Home = () => {
 
     const [films, setFilms] = useState(null)
-
     const getFilms = async () => {
         const response = await axios.get("/movie/popular")
 
@@ -22,15 +21,16 @@ const Home = () => {
         })();
 
     }, [])
-
     return (
-        <div className="home" style={{paddingLeft: "20px" }}>
+        <div className="home" style={{ paddingLeft: "20px" }}>
+
             <Slider>
                 {films && films.map((item) => (
-                    <Card key={item.id} date={item.release_date} title={item.title} src={`http://image.tmdb.org/t/p/original${item.poster_path}`} />
+                    <Card key={item.id} vote={item.vote_average} date={item.release_date} title={item.title} src={`http://image.tmdb.org/t/p/original${item.poster_path}`} />
 
                 ))}
             </Slider>
+
 
         </div>
     )
